@@ -10,8 +10,12 @@ class AppRouter {
       return _pageAnimatedRoute(const Scaffold(body: Center(child: Text(''))));
     },
     routes: <GoRoute>[
-        GoRoute(name:'welcomeScreen',
-                path:'/welcomeScreen' )
+      GoRoute(
+        name: 'WelcomeScreen',
+        path: '/WelcomeScreen',
+        pageBuilder: (context, state) =>
+            _pageAnimatedRoute(const Scaffold(body: Center(child: Text('')))),
+      ),
     ],
   );
 
