@@ -9,4 +9,5 @@ void main() {
     DeviceOrientation.portraitDown,
   ]);
   runApp(const SetramApp());
+ 
 }
