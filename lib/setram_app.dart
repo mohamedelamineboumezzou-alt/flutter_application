@@ -27,9 +27,7 @@ class _SetramAppState extends State<SetramApp> {
           darkTheme: AppTheme.darkThemeData,
           theme: AppTheme.lightThemeData,
           themeMode: ThemeMode.light,
-          routeInformationParser: AppRouter.router.routeInformationParser,
-          routerDelegate: AppRouter.router.routerDelegate,
-          routeInformationProvider: AppRouter.router.routeInformationProvider,
+          routerConfig: AppRouter.router,
           builder: (context, routerWidget) {
             AppSize.setSizes(context);
             return MediaQuery(

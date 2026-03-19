@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:mobile_socode/features/signin/presentation/login_screen.dart';
 
 class AppRouter {
   AppRouter._();
   static final GoRouter router = GoRouter(
     debugLogDiagnostics: true,
-    initialLocation: "/WelcomeScreen",
+    initialLocation: "/LoginScreen",
     errorPageBuilder: (context, state) {
       return _pageAnimatedRoute(const Scaffold(body: Center(child: Text(''))));
     },
     routes: <GoRoute>[
       GoRoute(
-        name: 'WelcomeScreen',
-        path: '/WelcomeScreen',
-        pageBuilder: (context, state) =>
-            _pageAnimatedRoute(const Scaffold(body: Center(child: Text('')))),
+        name: 'LoginScreen',
+        path: '/LoginScreen',
+        pageBuilder: (context, state) => _pageAnimatedRoute(LoginScreen()
+          
+        ),
       ),
     ],
   );
