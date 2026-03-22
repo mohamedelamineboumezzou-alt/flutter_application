@@ -13,15 +13,23 @@ class DashboardCard extends StatelessWidget {
   final String title;
   final String subtitle;
   final VoidCallback onTap;
+  final bool isHorizontal;
+  
+
   const DashboardCard({
     super.key,
     required this.icon,
     required this.title,
     required this.subtitle,
     required this.onTap,
+    this.isHorizontal = false,
+    
+
+    
   });
 
   @override
+
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
@@ -31,42 +39,40 @@ class DashboardCard extends StatelessWidget {
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(15),
+          
         ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            padding: const EdgeInsets.all(10),
+        
+        child:
+        
+      
+         Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          
+          children: [
+            Container(
+              
+              padding: const EdgeInsets.all(15),
 
               decoration: BoxDecoration(
-              
                 color: Colors.blue.withOpacity(0.1),
                 borderRadius: BorderRadius.circular(10),
-                
-                
+              ),
+              child: Icon(icon, color: Colors.blue),
             ),
-            child: Icon(icon,color: Colors.blue,),
-            
-          ),
-        const  SizedBox(height: 10,),
-        Text(
-              title,
-              
-              style: const TextStyle(fontWeight: FontWeight.bold),
-            ),
-            const  SizedBox(height: 5,),
+            const SizedBox(height: 5),
+            Text(title, style: const TextStyle(fontWeight: FontWeight.bold)),
+            const SizedBox(height: 2),
             Text(
               subtitle,
-              style:  TextStyle(color: Colors.grey,
-              fontWeight: FontWeight.bold,fontSize: 12 ),
+              style: TextStyle(
+                color: Colors.grey,
+                fontWeight: FontWeight.bold,
+                fontSize: 12,
+              ),
             ),
-            
-
-         
-        ],
+          ],
+        ),
       ),
-      ),
-      
     );
   }
 }
@@ -154,12 +160,12 @@ class _EngineerDashboardState extends State<EngineerDashboard> {
                   ),
                 ],
               ),
-              SizedBox(height: 50),
+              SizedBox(height: 10),
               Expanded(
                 child: GridView.count(
                   crossAxisCount: 2,
-                  crossAxisSpacing: 15,
-                  mainAxisSpacing: 15,
+                  crossAxisSpacing: 4,
+                  mainAxisSpacing: 4,
                   children: [
                     DashboardCard(
                       icon: Icons.upload_file,
@@ -169,6 +175,7 @@ class _EngineerDashboardState extends State<EngineerDashboard> {
                         print("Clicked");
                       },
                     ),
+                    
                     DashboardCard(
                       icon: Icons.description,
                       title: "Gérer Bulletins",
@@ -181,12 +188,12 @@ class _EngineerDashboardState extends State<EngineerDashboard> {
                       icon: Icons.compare_arrows,
                       title: "Gérer Permutations",
                       subtitle: "Échanges chauffeurs",
-                      
-                      
+
                       onTap: () {
                         print("Clicked");
                       },
                     ),
+                    
                     DashboardCard(
                       icon: Icons.history,
                       title: "Consulter Historique",
@@ -194,14 +201,74 @@ class _EngineerDashboardState extends State<EngineerDashboard> {
                       onTap: () {
                         print("Clicked");
                       },
+                      
+                     
                     ),
+                    
+                    Row(
+                      
+                      
+                      children: [
+                        Expanded(child: 
+                        DashboardCard(
+                          
+                          
+                          
+                      icon: Icons.info,
+                      
+                      
+                      title: 'Prochain Service',
+
+                      subtitle: 'Ligne Tramway T1 - 14:30',
+                      onTap: () {
+                        print('Clicked');
+                      },
+                      
+                      
+                    ),),
+                         
+                      ],
+                    )
+
+                   
                   ],
                 ),
+                
               ),
-            ],
+              BottomNavigationBar(
+                backgroundColor: Colors.white,
+                elevation: 0,
+                currentIndex: 0,
+        selectedItemColor: AppColors.primary,
+        unselectedItemColor: Colors.white,
+                items:const [
+          BottomNavigationBarItem(
+            
+            icon: Icon(Icons.home),
+            label: "ACCUEIL",
           ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.description),
+            label: "BULLETINS",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.compare_arrows),
+            label: "PERMUTATIONS",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.history),
+            label: "HISTORIQUE",
+          ),
+        ],)
+            
+            ],
+            
+          ),
+        
         ),
+        
       ),
+      
     );
   }
 }
