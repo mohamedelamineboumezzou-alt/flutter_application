@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_socode/core/theme/app_theme.dart';
@@ -88,7 +87,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 width: 350,
                 child: TextField(
                   decoration: InputDecoration(
-                    hintText: 'Entre votre matricule',
+                    hintText: 'Entrer votre matricule',
 
                     hintStyle: TextStyle(
                       fontSize: 16,
@@ -171,7 +170,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   TextButton(
                     onPressed: () {},
                     child: const Text(
-                      "Mot passe oublié",
+                      "Mot de passe oublié ?",
                       style: TextStyle(color: AppColors.primary),
                     ),
                   ),
