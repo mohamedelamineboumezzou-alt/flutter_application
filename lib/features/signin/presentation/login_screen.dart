@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:mobile_socode/core/theme/app_theme.dart';
 import 'package:mobile_socode/core/theme/colors.dart';
 
@@ -12,6 +13,7 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   bool? isChecked = false;
+  bool isHidden = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -88,13 +90,13 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: TextField(
                   decoration: InputDecoration(
                     hintText: 'Entrer votre matricule',
-
                     hintStyle: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.normal,
                       color: Colors.grey,
                     ),
                     border: OutlineInputBorder(),
+                    prefixIcon: Icon(Icons.badge),
                   ),
                 ),
               ),
@@ -118,6 +120,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 width: 350,
 
                 child: TextField(
+                  obscureText: isHidden,
                   decoration: InputDecoration(
                     hintText: 'Enter votre mot de passe',
                     hintStyle: TextStyle(
@@ -126,6 +129,17 @@ class _LoginScreenState extends State<LoginScreen> {
                       color: Colors.grey,
                     ),
                     border: OutlineInputBorder(),
+                    prefixIcon: Icon(Icons.lock),
+                    suffixIcon: IconButton(
+                      onPressed: () {
+                        setState(() {
+                          isHidden = !isHidden;
+                        });
+                      },
+                      icon: Icon(
+                        isHidden ? Icons.visibility_off : Icons.visibility,
+                      ),
+                    ),
                   ),
                 ),
               ),
@@ -157,7 +171,9 @@ class _LoginScreenState extends State<LoginScreen> {
               Column(
                 children: [
                   MaterialButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      context.pushNamed('EnginnerDashbord');
+                    },
                     child: const Text(
                       "Se connecter",
                       style: TextStyle(color: Colors.white),

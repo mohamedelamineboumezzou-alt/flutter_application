@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:mobile_socode/features/signin/presentation/EngineerDashboard.dart';
+
 import 'package:mobile_socode/features/signin/presentation/login_screen.dart';
 
 class AppRouter {
@@ -18,6 +20,14 @@ class AppRouter {
           
         ),
       ),
+      GoRoute(
+        name: 'EnginnerDashbord',
+        path: '/EnginerDashboard',
+        pageBuilder: (context, state) => _pageAnimatedRoute(EngineerDashboard()
+          
+        ),)
+      
+
     ],
   );
 
