@@ -35,28 +35,25 @@ class DashboardCard extends StatelessWidget {
   @override
 
   Widget build(BuildContext context) {
-    return InkWell(
+    return Material(
+    color: Colors.white,
+    borderRadius: BorderRadius.circular(15),
+
+    child: InkWell(
       onTap: onTap,
       borderRadius: BorderRadius.circular(15),
-      child: Container(
+
+      splashColor: Colors.blue.withOpacity(0.15),
+      highlightColor: Colors.blue.withOpacity(0.05),
+
+      child: Padding(
         padding: const EdgeInsets.all(15),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(15),
-          
-        ),
-        
-        child:
-        
-      
-         Column(
+
+        child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          
           children: [
             Container(
-              
               padding: const EdgeInsets.all(15),
-
               decoration: BoxDecoration(
                 color: Colors.blue.withOpacity(0.1),
                 borderRadius: BorderRadius.circular(10),
@@ -64,11 +61,14 @@ class DashboardCard extends StatelessWidget {
               child: Icon(icon, color: Colors.blue),
             ),
             const SizedBox(height: 5),
-            Text(title, style: const TextStyle(fontWeight: FontWeight.bold)),
+            Text(
+              title,
+              style: const TextStyle(fontWeight: FontWeight.bold),
+            ),
             const SizedBox(height: 2),
             Text(
               subtitle,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.grey,
                 fontWeight: FontWeight.bold,
                 fontSize: 12,
@@ -77,7 +77,8 @@ class DashboardCard extends StatelessWidget {
           ],
         ),
       ),
-    );
+    ),
+  );
   }
 }
 
@@ -243,10 +244,11 @@ class _EngineerDashboardState extends State<EngineerDashboard> {
               BottomNavigationBar(
                 type: BottomNavigationBarType.fixed,
                 
-                backgroundColor:AppColors.secondary,
+                backgroundColor:Colors.white,
         selectedItemColor: AppColors.primary,
-        unselectedItemColor: AppColors.primary,
+        unselectedItemColor: AppColors.primary.withOpacity(0.4),
         selectedLabelStyle: TextStyle(
+          fontFamily: 'Montserrat',
     fontWeight: FontWeight.bold, 
     fontSize: 10,
     
@@ -255,6 +257,8 @@ class _EngineerDashboardState extends State<EngineerDashboard> {
   unselectedLabelStyle:  TextStyle(
     fontWeight: FontWeight.bold, 
     fontSize: 8,),
+    showUnselectedLabels: true,
+    
         currentIndex: _currentIndex,
         
          onTap: (index) {
@@ -263,7 +267,7 @@ class _EngineerDashboardState extends State<EngineerDashboard> {
             
           });
         },
-         showUnselectedLabels: true,
+         
                 items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),

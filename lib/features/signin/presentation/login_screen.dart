@@ -31,186 +31,189 @@ class _LoginScreenState extends State<LoginScreen> {
         elevation: 0,
       ),
 
-      body: Center(
-        child: Padding(
-          padding: EdgeInsets.only(top: 40),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.only(top: 40),
 
-          child: Column(
-            children: [
-              CircleAvatar(
-                radius: 64,
-                child: Icon(
-                  Icons.train,
-                  size: 100.w,
-                  color: AppColors.secondary,
+            child: Column(
+              children: [
+                CircleAvatar(
+                  radius: 64,
+                  child: Icon(
+                    Icons.train,
+                    size: 100.w,
+                    color: AppColors.secondary,
+                  ),
+                  backgroundColor: AppColors.primary,
                 ),
-                backgroundColor: AppColors.primary,
-              ),
-              SizedBox(height: 20),
+                SizedBox(height: 20),
 
-              Text(
-                'SETRAM',
-                style: TextStyle(
-                  fontSize: 40,
-                  fontWeight: FontWeight.bold,
-                  color: AppColors.primary,
-                ),
-              ),
-
-              Text(
-                'Espace Ingenieur',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.grey,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Column(crossAxisAlignment: CrossAxisAlignment.center),
-              ),
-
-              //text input
-              Container(
-                width: 350,
-                child: Text(
-                  'Matricule',
-                  textAlign: TextAlign.left,
+                Text(
+                  'SETRAM',
                   style: TextStyle(
-                    fontSize: 16,
+                    fontSize: 40,
                     fontWeight: FontWeight.bold,
-                    color: Colors.black,
-                  ),
-                ),
-              ),
-
-              SizedBox(
-                height: 50,
-                width: 350,
-                child: TextField(
-                  decoration: InputDecoration(
-                    hintText: 'Entrer votre matricule',
-                    hintStyle: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.normal,
-                      color: Colors.grey,
-                    ),
-                    border: OutlineInputBorder(),
-                    prefixIcon: Icon(Icons.badge),
-                  ),
-                ),
-              ),
-
-              SizedBox(height: 20),
-              Container(
-                width: 350,
-                child: Text(
-                  'Mot de passe',
-                  textAlign: TextAlign.left,
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
-                  ),
-                ),
-              ),
-
-              SizedBox(
-                height: 50,
-                width: 350,
-
-                child: TextField(
-                  obscureText: isHidden,
-                  decoration: InputDecoration(
-                    hintText: 'Enter votre mot de passe',
-                    hintStyle: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.normal,
-                      color: Colors.grey,
-                    ),
-                    border: OutlineInputBorder(),
-                    prefixIcon: Icon(Icons.lock),
-                    suffixIcon: IconButton(
-                      onPressed: () {
-                        setState(() {
-                          isHidden = !isHidden;
-                        });
-                      },
-                      icon: Icon(
-                        isHidden ? Icons.visibility_off : Icons.visibility,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(height: 10),
-
-              Row(
-                children: [
-                  Checkbox(
-                    value: isChecked,
-                    activeColor: AppColors.primary,
-                    onChanged: (newBool) {
-                      setState(() {
-                        isChecked = newBool;
-                      });
-                    },
-                  ),
-                  Flexible(
-                    child: Text(
-                      'Se sevenir de moi',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 10),
-                ],
-              ),
-              Column(
-                children: [
-                  MaterialButton(
-                    onPressed: () {
-                      context.pushNamed('EnginnerDashbord');
-                    },
-                    child: const Text(
-                      "Se connecter",
-                      style: TextStyle(color: Colors.white),
-                    ),
                     color: AppColors.primary,
-                    minWidth: 300,
-                    splashColor: Colors.blue,
                   ),
-                  SizedBox(height: 10),
-                  TextButton(
-                    onPressed: () {},
-                    child: const Text(
-                      "Mot de passe oublié ?",
-                      style: TextStyle(color: AppColors.primary),
-                    ),
+                ),
+
+                Text(
+                  'Espace Ingenieur',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.grey,
                   ),
-                  SizedBox(height: 40),
-                  Text(
-                    'CONSTANTINE',
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Column(crossAxisAlignment: CrossAxisAlignment.center),
+                ),
+
+                //text input
+                Container(
+                  width: 350,
+                  child: Text(
+                    'Matricule',
+                    textAlign: TextAlign.left,
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
-                      color: Colors.grey,
+                      color: Colors.black,
                     ),
                   ),
-                  SizedBox(height: 10),
-                  Text(
-                    '© 2024 SETRAM Constantine - Système de Gestion Technique',
+                ),
+
+                SizedBox(
+                  height: 50,
+                  width: 350,
+
+                  child: TextField(
+                    decoration: InputDecoration(
+                      hintText: 'Entrer votre matricule',
+                      hintStyle: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.normal,
+                        color: Colors.grey,
+                      ),
+                      border: OutlineInputBorder(),
+                      prefixIcon: Icon(Icons.badge),
+                    ),
+                  ),
+                ),
+
+                SizedBox(height: 20),
+                Container(
+                  width: 350,
+                  child: Text(
+                    'Mot de passe',
+                    textAlign: TextAlign.left,
                     style: TextStyle(
-                      fontSize: 10,
-                      fontWeight: FontWeight.normal,
-                      color: Colors.grey,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
                     ),
                   ),
-                ],
-              ),
-            ],
+                ),
+
+                SizedBox(
+                  height: 50,
+                  width: 350,
+
+                  child: TextField(
+                    obscureText: isHidden,
+                    decoration: InputDecoration(
+                      hintText: 'Enter votre mot de passe',
+                      hintStyle: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.normal,
+                        color: Colors.grey,
+                      ),
+                      border: OutlineInputBorder(),
+                      prefixIcon: Icon(Icons.lock),
+                      suffixIcon: IconButton(
+                        onPressed: () {
+                          setState(() {
+                            isHidden = !isHidden;
+                          });
+                        },
+                        icon: Icon(
+                          isHidden ? Icons.visibility_off : Icons.visibility,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 10),
+
+                Row(
+                  children: [
+                    Checkbox(
+                      value: isChecked,
+                      activeColor: AppColors.primary,
+                      onChanged: (newBool) {
+                        setState(() {
+                          isChecked = newBool;
+                        });
+                      },
+                    ),
+                    Flexible(
+                      child: Text(
+                        'Se sevenir de moi',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 10),
+                  ],
+                ),
+                Column(
+                  children: [
+                    MaterialButton(
+                      onPressed: () {
+                        context.pushNamed('EnginnerDashbord');
+                      },
+                      child: const Text(
+                        "Se connecter",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      color: AppColors.primary,
+                      minWidth: 300,
+                      splashColor: Colors.blue,
+                    ),
+                    SizedBox(height: 10),
+                    TextButton(
+                      onPressed: () {},
+                      child: const Text(
+                        "Mot de passe oublié ?",
+                        style: TextStyle(color: AppColors.primary),
+                      ),
+                    ),
+                    SizedBox(height: 40),
+                    Text(
+                      'CONSTANTINE',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.grey,
+                      ),
+                    ),
+                    SizedBox(height: 10),
+                    Text(
+                      '© 2024 SETRAM Constantine - Système de Gestion Technique',
+                      style: TextStyle(
+                        fontSize: 10,
+                        fontWeight: FontWeight.normal,
+                        color: Colors.grey,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
