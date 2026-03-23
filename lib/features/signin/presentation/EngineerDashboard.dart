@@ -111,7 +111,7 @@ class _EngineerDashboardState extends State<EngineerDashboard> {
               'Matricule: 2024-589-CST',
               style: TextStyle(
                 fontWeight: FontWeight.normal,
-                fontSize: 18,
+                fontSize: 14,
                 color: AppColors.secondary,
               ),
             ),
@@ -241,9 +241,20 @@ class _EngineerDashboardState extends State<EngineerDashboard> {
                 
               ),
               BottomNavigationBar(
-                backgroundColor: AppColors.primary, // لون خلفية الـ NavBar
-        selectedItemColor: Colors.white,
-        unselectedItemColor: Colors.grey[300],
+                type: BottomNavigationBarType.fixed,
+                
+                backgroundColor:AppColors.secondary,
+        selectedItemColor: AppColors.primary,
+        unselectedItemColor: AppColors.primary,
+        selectedLabelStyle: TextStyle(
+    fontWeight: FontWeight.bold, 
+    fontSize: 10,
+    
+    
+  ),
+  unselectedLabelStyle:  TextStyle(
+    fontWeight: FontWeight.bold, 
+    fontSize: 8,),
         currentIndex: _currentIndex,
         
          onTap: (index) {
@@ -252,10 +263,14 @@ class _EngineerDashboardState extends State<EngineerDashboard> {
             
           });
         },
+         showUnselectedLabels: true,
                 items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: "ACCUEIL",
+          
+            
+            
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.description),

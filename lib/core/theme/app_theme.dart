@@ -8,6 +8,7 @@ class AppTheme {
   static ThemeData lightThemeData = ThemeData(
     useMaterial3: true,
     scaffoldBackgroundColor: AppColors.secondary,
+    
     primaryColor: AppColors.primary,
     textSelectionTheme: const TextSelectionThemeData(
       selectionColor: AppColors.secondary,
@@ -93,10 +94,10 @@ class AppTheme {
     /// [Bottom Navigation Bar]
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       selectedItemColor: AppColors.primary,
-      unselectedItemColor: AppColors.deepGray,
+      unselectedItemColor: AppColors.secondary,
       backgroundColor: AppColors.secondary,
       selectedIconTheme: IconThemeData(color: AppColors.primary),
-      unselectedIconTheme: IconThemeData(color: AppColors.deepGray),
+      unselectedIconTheme: IconThemeData(color: AppColors.secondary)
     ),
   );
 
