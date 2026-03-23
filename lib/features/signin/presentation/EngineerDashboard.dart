@@ -2,13 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:mobile_socode/core/theme/colors.dart';
 
 class EngineerDashboard extends StatefulWidget {
+  
   EngineerDashboard({super.key});
+  
 
   @override
   State<EngineerDashboard> createState() => _EngineerDashboardState();
+  
 }
 
 class DashboardCard extends StatelessWidget {
+  
   final IconData icon;
   final String title;
   final String subtitle;
@@ -78,6 +82,7 @@ class DashboardCard extends StatelessWidget {
 }
 
 class _EngineerDashboardState extends State<EngineerDashboard> {
+  int _currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -236,14 +241,19 @@ class _EngineerDashboardState extends State<EngineerDashboard> {
                 
               ),
               BottomNavigationBar(
-                backgroundColor: Colors.white,
-                elevation: 0,
-                currentIndex: 0,
-        selectedItemColor: AppColors.primary,
-        unselectedItemColor: Colors.white,
-                items:const [
-          BottomNavigationBarItem(
+                backgroundColor: AppColors.primary, // لون خلفية الـ NavBar
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.grey[300],
+        currentIndex: _currentIndex,
+        
+         onTap: (index) {
+          setState(() {
+             _currentIndex = index;
             
+          });
+        },
+                items: [
+          BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: "ACCUEIL",
           ),
