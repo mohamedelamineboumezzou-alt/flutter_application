@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mobile_socode/features/signin/presentation/EngineerDashboard.dart';
+import 'package:mobile_socode/features/presentation/HomeScreen.dart';
 
 import 'package:mobile_socode/features/signin/presentation/login_screen.dart';
 
@@ -16,18 +16,14 @@ class AppRouter {
       GoRoute(
         name: 'LoginScreen',
         path: '/LoginScreen',
-        pageBuilder: (context, state) => _pageAnimatedRoute(LoginScreen()
-          
-        ),
+        pageBuilder: (context, state) => _pageAnimatedRoute(LoginScreen()),
       ),
       GoRoute(
-        name: 'EnginnerDashbord',
-        path: '/EnginerDashboard',
-        pageBuilder: (context, state) => _pageAnimatedRoute(EngineerDashboard()
-          
-        ),)
-      
-
+        name: 'HomeScreen',
+        path: '/HomeScreen',
+        pageBuilder: (context, state) =>
+            _pageAnimatedRoute(HomeScreen()),
+      ),
     ],
   );
 
